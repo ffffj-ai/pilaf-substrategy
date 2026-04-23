@@ -1,0 +1,26 @@
+[package]
+name = "pilaf-substrategy"
+version = "0.1.0"
+edition = "2021"
+description = "R51 — Pilaf layer-3 sub-strategy evolution. Rust wrapper that scores ACPrompt attention-queue items and emits suggested actions. Allowed to evolve freely without touching layer-1 (Core Identity) or layer-2 (Strategy / TS brain)."
+license = "Unlicense"
+repository = "https://github.com/ffffj-ai/pilaf-substrategy"
+
+[lib]
+name = "pilaf_substrategy"
+crate-type = ["rlib", "cdylib"]
+
+[[bin]]
+name = "pilaf-substrategy"
+path = "src/bin/cli.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
