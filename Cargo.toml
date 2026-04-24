@@ -3,7 +3,7 @@ name = "pilaf-substrategy"
 version = "0.1.0"
 edition = "2021"
 description = "R51 — Pilaf layer-3 sub-strategy evolution. Rust wrapper that scores ACPrompt attention-queue items and emits suggested actions. Allowed to evolve freely without touching layer-1 (Core Identity) or layer-2 (Strategy / TS brain)."
-license = "Unlicense"
+license = "MIT"
 repository = "https://github.com/ffffj-ai/pilaf-substrategy"
 
 [lib]
