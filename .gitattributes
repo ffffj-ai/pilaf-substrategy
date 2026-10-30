@@ -1,0 +1,4 @@
+# R142 — the cross-language golden fixture must be byte-stable regardless of
+# core.autocrlf: both tests hash the CRLF-normalised content, and this
+# attribute stops git from rewriting the file on checkout.
+tests/fixtures/*.json -text

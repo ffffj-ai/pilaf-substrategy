@@ -1,0 +1,96 @@
+{
+  "fixture_version": 1,
+  "note": "Cross-language golden vector for the Pilaf weight tuner. Generated from the Rust reference (pilaf_substrategy::tune_weights, f32 arithmetic) via `pilaf-substrategy-tune --feedback`. The TS mirror (tuneWeights, f64) must reproduce it within `tolerance`. The two are NOT bit-identical and their checksums are never comparable — see acp/src/lib/pilaf-outcome-feedback.ts header (R139).",
+  "tolerance": 1e-06,
+  "current": {
+    "schema_version": 1,
+    "urgency": { "high": 1.0, "medium": 0.6, "low": 0.3 },
+    "kind": {
+      "dispute_open": 1.0,
+      "anomaly_burst": 0.9,
+      "proposal_pending": 0.7,
+      "task_overdue_deadline": 0.6,
+      "module_draft_pending": 0.5,
+      "task_stale_claim": 0.4
+    }
+  },
+  "feedback": [
+    { "kind": "dispute_open", "urgency": "high", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "high", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "medium", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "high", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "low", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "medium", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "high", "outcome": "failed" },
+    { "kind": "dispute_open", "urgency": "high", "outcome": "ok" },
+    { "kind": "dispute_open", "urgency": "high", "outcome": "ignored" },
+
+    { "kind": "task_overdue_deadline", "urgency": "medium", "outcome": "failed" },
+    { "kind": "task_overdue_deadline", "urgency": "medium", "outcome": "failed" },
+    { "kind": "task_overdue_deadline", "urgency": "high", "outcome": "failed" },
+    { "kind": "task_overdue_deadline", "urgency": "low", "outcome": "ignored" },
+    { "kind": "task_overdue_deadline", "urgency": "medium", "outcome": "failed" },
+    { "kind": "task_overdue_deadline", "urgency": "high", "outcome": "ignored" },
+
+    { "kind": "anomaly_burst", "urgency": "high", "outcome": "ok" },
+    { "kind": "anomaly_burst", "urgency": "high", "outcome": "ok" },
+    { "kind": "anomaly_burst", "urgency": "medium", "outcome": "ok" },
+    { "kind": "anomaly_burst", "urgency": "medium", "outcome": "ignored" },
+    { "kind": "anomaly_burst", "urgency": "low", "outcome": "ok" },
+    { "kind": "anomaly_burst", "urgency": "high", "outcome": "ok" },
+
+    { "kind": "module_draft_pending", "urgency": "low", "outcome": "ok" },
+    { "kind": "module_draft_pending", "urgency": "low", "outcome": "ignored" },
+
+    { "kind": "proposal_pending", "urgency": "medium", "outcome": "failed" },
+    { "kind": "proposal_pending", "urgency": "medium", "outcome": "failed" },
+    { "kind": "proposal_pending", "urgency": "high", "outcome": "failed" },
+    { "kind": "proposal_pending", "urgency": "high", "outcome": "ok" },
+    { "kind": "proposal_pending", "urgency": "medium", "outcome": "ignored" },
+    { "kind": "proposal_pending", "urgency": "low", "outcome": "failed" }
+  ],
+  "expected": {
+    "total_feedback_rows": 29,
+    "new_weights": {
+      "schema_version": 1,
+      "urgency": { "high": 1.0, "medium": 0.6, "low": 0.3 },
+      "kind": {
+        "dispute_open": 1.1,
+        "anomaly_burst": 1.0,
+        "proposal_pending": 0.59999996,
+        "task_overdue_deadline": 0.6,
+        "module_draft_pending": 0.5,
+        "task_stale_claim": 0.4
+      }
+    },
+    "changes": [
+      {
+        "target": "kind.dispute_open",
+        "old": 1.0,
+        "new": 1.1,
+        "delta": 0.10000001,
+        "sample_size": 8,
+        "success_rate": 0.875,
+        "reason": "success_rate_high"
+      },
+      {
+        "target": "kind.anomaly_burst",
+        "old": 0.9,
+        "new": 1.0,
+        "delta": 0.10000001,
+        "sample_size": 5,
+        "success_rate": 1.0,
+        "reason": "success_rate_high"
+      },
+      {
+        "target": "kind.proposal_pending",
+        "old": 0.7,
+        "new": 0.59999996,
+        "delta": -0.10000001,
+        "sample_size": 5,
+        "success_rate": 0.2,
+        "reason": "success_rate_low"
+      }
+    ]
+  }
+}

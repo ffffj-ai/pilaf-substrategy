@@ -25,6 +25,12 @@ path = "src/bin/tune.rs"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
+# R142 — tests/golden.rs pins the cross-language fixture by SHA256 so a fixture
+# edited in one repo fails the other repo's test. Test-only, so the published
+# library gains no dependency.
+[dev-dependencies]
+sha2 = "0.10"
+
 [profile.release]
 opt-level = "z"
 lto = true
